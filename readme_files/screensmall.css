@@ -72,14 +72,14 @@ input[type=submit]{padding:5px 15px}
 /* ---------------- */
 
 .demo label{display:block;padding:0.5em;padding-left:32px;background-position:8px center;background-repeat:no-repeat;border:1px solid #252525;clear:both;cursor:pointer}
-.fancyform_checked{border-bottom:1px solid transparent;position:relative;display:inline-block;top:3px;width:16px;height:16px;background-image:url(chk_on.png);}
-.fancyform_checked.fancyform_disabled {background-image:url(chk_on_disabled.png);}
-.fancyform_unchecked{border-bottom:1px solid transparent;position:relative;display:inline-block;top:4px;width:16px;height:16px;background-image:url(chk_off.png);}
-.fancyform_unchecked.fancyform_disabled {background-image:url(chk_off_disabled.png);}
-.fancyform_selected{border-bottom:1px solid transparent;position:relative;display:inline-block;top:4px;width:16px;height:16px;background-image:url(rdo_on.png);}
-.fancyform_selected.fancyform_disabled {background-image:url(rdo_on_disabled.png);}
-.fancyform_unselected{border-bottom:1px solid transparent;position:relative;display:inline-block;top:4px;width:16px;height:16px;background-image:url(rdo_off.png);}
-.fancyform_unselected.fancyform_disabled {background-image:url(rdo_off_disabled.png);}
+.fancyform_checked{cursor: pointer;border-bottom:1px solid transparent;position:relative;display:inline-block;top:3px;width:16px;height:16px;background-image:url(chk_on.png);}
+.fancyform_checked.fancyform_disabled {cursor: default;background-image:url(chk_on_disabled.png);}
+.fancyform_unchecked{cursor: pointer;border-bottom:1px solid transparent;position:relative;display:inline-block;top:4px;width:16px;height:16px;background-image:url(chk_off.png);}
+.fancyform_unchecked.fancyform_disabled {cursor: default;background-image:url(chk_off_disabled.png);}
+.fancyform_selected{cursor: pointer;border-bottom:1px solid transparent;position:relative;display:inline-block;top:4px;width:16px;height:16px;background-image:url(rdo_on.png);}
+.fancyform_selected.fancyform_disabled {cursor: default;background-image:url(rdo_on_disabled.png);}
+.fancyform_unselected{cursor: pointer;border-bottom:1px solid transparent;position:relative;display:inline-block;top:4px;width:16px;height:16px;background-image:url(rdo_off.png);}
+.fancyform_unselected.fancyform_disabled {cursor: default;background-image:url(rdo_off_disabled.png);}
 .fancyform_focus{border-bottom:1px dotted #999;}
 /*
 .checked{background-color:#222;background-image:url(chk_on.png)}
