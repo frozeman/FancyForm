@@ -24,11 +24,11 @@ var FancyForm = {
 			FancyForm.extra = options['extraClasses'];
 		} else if(options['extraClasses']){
 			FancyForm.extra = {
-				checkbox: 'f_checkbox',
-				radio: 'f_radio',
-				on: 'f_on',
-				off: 'f_off',
-				all: 'fancy'
+				checkbox: 'fancyform_checkbox',
+				radio: 'fancyform_radio',
+				on: 'fancyform_on',
+				off: 'fancyform_off',
+				all: 'fancyform'
 			}
 		} else {
 			FancyForm.extra = {};
@@ -52,12 +52,12 @@ var FancyForm = {
 			if(typeOf(chk) != 'element' || chk.inputElement || (chk.get('tag') == 'input' && chk.getParent().inputElement))
 				return false;
 			if(chk.get('tag') == 'input' && (FancyForm.onclasses[chk.getProperty('type')])){
-				//var el = chk.getParent();
 				var el = new Element('div')
 				chk.grab(el,'before');
-				if(el.getNext('input')==chk){ //if(el.getElement('input')==chk){
+				if(el.getNext('input')==chk){
 					el.type = chk.getProperty('type');
 					el.inputElement = chk;
+					if(chk.getProperty('disabled')) el.addClass('fancyform_disabled');
 					this.push(el);
 				} else {
 					chk.addEvent('click',function(f){
