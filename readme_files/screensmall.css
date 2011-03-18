@@ -1,5 +1,5 @@
 html,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,hr{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100.01%;font-family:inherit;vertical-align:baseline;text-decoration:none}th,td{text-align:left;font-weight:normal}blockquote::before,blockquote::after{content:""}
-body{margin:0;padding:0;background-color:#161613;color:#dedede;font:normal normal 86%/1.5em 'Lucida Grande','Lucida Sans','Lucida Sans Unicode',Verdana,sans-serif;min-width:700px}
+body{margin:0;padding:0;background-color:#161613;color:#dedede;font:normal normal 86%/1.5em Verdana,sans-serif;min-width:700px}
 .section{overflow:auto}
 hr{width:100%;clear:both;height:4px;margin:2.5em 0;background:transparent}
 #overview{margin-top:0;margin-bottom:45px;}
@@ -15,14 +15,15 @@ p.lead{font-size:1em;color:#fff}
 p.lead em{color:#1d7ffc;font-style:normal}
 a:link{color:#fff}
 .section a:link{text-decoration:underline}
-a:visited{color:#e5c5c5;text-decoration:none}
+a:visited{color:#e5c5c5;}
 a:hover{color:#fd68fd;border-bottom-style:solid}
 a:active{color:#fb1080}
 .section a:focus{outline:1px dotted invert}
 strong{ font-weight:bold}
 q,cite,em{font-style:italic}
 q{quotes:'"' '"' "'" "'"}
-q:before{content:open-quote}q:after{content:close-quote}
+q:before{content:open-quote}
+q:after{content:close-quote}
 abbr,dfn,acronym{border-bottom:1px dotted #999;cursor:help}
 var,samp,kbd{font-family:Monaco,"Lucida Console",monospace;border-bottom:1px solid #162636;padding:2px;font-size:12px}
 ol,ul{margin:0.5em 0 1.2em 2em}

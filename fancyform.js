@@ -1,5 +1,5 @@
 /*
-* FancyForm 0.95
+* FancyForm 0.96
 * By Vacuous Virtuoso, lipidity.com
 * ---
 * Checkbox and radio input replacement script.
@@ -9,17 +9,17 @@
 var FancyForm = {
 	start: function(elements, options){
 		if(FancyForm.initing != undefined) return;
-		if($type(elements)!='array') elements = $$('input');
+		if(typeOf(elements)!='array') elements = $$('input');
 		if(!options) options = [];
-		FancyForm.onclasses = ($type(options['onClasses']) == 'object') ? options['onClasses'] : {
+		FancyForm.onclasses = (typeOf(options['onClasses']) == 'object') ? options['onClasses'] : {
 			checkbox: 'checked',
 			radio: 'selected'
 		}
-		FancyForm.offclasses = ($type(options['offClasses']) == 'object') ? options['offClasses'] : {
+		FancyForm.offclasses = (typeOf(options['offClasses']) == 'object') ? options['offClasses'] : {
 			checkbox: 'unchecked',
 			radio: 'unselected'
 		}
-		if($type(options['extraClasses']) == 'object'){
+		if(typeOf(options['extraClasses']) == 'object'){
 			FancyForm.extra = options['extraClasses'];
 		} else if(options['extraClasses']){
 			FancyForm.extra = {
@@ -32,23 +32,23 @@ var FancyForm = {
 		} else {
 			FancyForm.extra = {};
 		}
-		FancyForm.onSelect = $pick(options['onSelect'], function(el){});
-		FancyForm.onDeselect = $pick(options['onDeselect'], function(el){});
+		FancyForm.onSelect = (typeOf(options['onSelect']) ==  'function') ? options['onSelect'] : function(el){};
+		FancyForm.onDeselect = (typeOf(options['onDeselect']) ==  'function') ? options['onSelect'] : function(el){};
 		FancyForm.chks = [];
 		FancyForm.add(elements);
-		$each($$('form'), function(x) {
+		Array.each($$('form'), function(x) {
 			x.addEvent('reset', function(a) {
 				window.setTimeout(function(){FancyForm.chks.each(function(x){FancyForm.update(x);x.inputElement.blur()})}, 200);
 			});
 		});
 	},
 	add: function(elements){
-		if($type(elements) == 'element')
+		if(typeOf(elements) == 'element')
 			elements = [elements];
 		FancyForm.initing = 1;
 		var keeps = [];
 		var newChks = elements.filter(function(chk){
-			if($type(chk) != 'element' || chk.inputElement || (chk.get('tag') == 'input' && chk.getParent().inputElement))
+			if(typeOf(chk) != 'element' || chk.inputElement || (chk.get('tag') == 'input' && chk.getParent().inputElement))
 				return false;
 			if(chk.get('tag') == 'input' && (FancyForm.onclasses[chk.getProperty('type')])){
 				var el = chk.getParent();
@@ -82,12 +82,12 @@ var FancyForm = {
 				c.fireEvent('click', f, 1);
 			});
 			chk.addEvent('mousedown', function(f){
-				if($type(c.onmousedown) == 'function')
+				if(typeOf(c.onmousedown) == 'function')
 					c.onmousedown();
 				f.preventDefault();
 			});
 			chk.addEvent('mouseup', function(f){
-				if($type(c.onmouseup) == 'function')
+				if(typeOf(c.onmouseup) == 'function')
 					c.onmouseup();
 			});
 			c.addEvent('focus', function(f){
@@ -109,7 +109,7 @@ var FancyForm = {
 					FancyForm.focus = 0;
 				FancyForm.update(chk);
 				FancyForm.focus = 1;
-				if(f.type == 'prop' && !FancyForm.initing && $type(c.onclick) == 'function')
+				if(f.type == 'prop' && !FancyForm.initing && typeOf(c.onclick) == 'function')
 					 c.onclick();
 			});
 			c.addEvent('mouseup', function(f){
