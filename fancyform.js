@@ -1,6 +1,7 @@
 /*
-* FancyForm 0.96
+* FancyForm 1.0
 * By Vacuous Virtuoso, lipidity.com
+* Edited by Fabian Vogelsteller, frozeman.de
 * ---
 * Checkbox and radio input replacement script.
 * Toggles defined class when input is selected.
@@ -12,12 +13,12 @@ var FancyForm = {
 		if(typeOf(elements)!='array') elements = $$('input');
 		if(!options) options = [];
 		FancyForm.onclasses = (typeOf(options['onClasses']) == 'object') ? options['onClasses'] : {
-			checkbox: 'checked',
-			radio: 'selected'
+			checkbox: 'fancyform_checked',
+			radio: 'fancyform_selected'
 		}
 		FancyForm.offclasses = (typeOf(options['offClasses']) == 'object') ? options['offClasses'] : {
-			checkbox: 'unchecked',
-			radio: 'unselected'
+			checkbox: 'fancyform_unchecked',
+			radio: 'fancyform_unselected'
 		}
 		if(typeOf(options['extraClasses']) == 'object'){
 			FancyForm.extra = options['extraClasses'];
@@ -51,8 +52,10 @@ var FancyForm = {
 			if(typeOf(chk) != 'element' || chk.inputElement || (chk.get('tag') == 'input' && chk.getParent().inputElement))
 				return false;
 			if(chk.get('tag') == 'input' && (FancyForm.onclasses[chk.getProperty('type')])){
-				var el = chk.getParent();
-				if(el.getElement('input')==chk){
+				//var el = chk.getParent();
+				var el = new Element('div')
+				chk.grab(el,'before');
+				if(el.getNext('input')==chk){ //if(el.getElement('input')==chk){
 					el.type = chk.getProperty('type');
 					el.inputElement = chk;
 					this.push(el);
@@ -92,10 +95,10 @@ var FancyForm = {
 			});
 			c.addEvent('focus', function(f){
 				if(FancyForm.focus)
-					chk.setStyle('outline', '1px dotted');
+					chk.addClass('fancyform_focus');
 			});
 			c.addEvent('blur', function(f){
-				chk.setStyle('outline', 0);
+				chk.removeClass('fancyform_focus');
 			});
 			c.addEvent('click', function(f){
 				if(f.event.stopPropagation) f.event.stopPropagation();
