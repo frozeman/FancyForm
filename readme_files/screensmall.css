@@ -43,7 +43,9 @@ h1 em{color:#1ea4fd;font-style:normal}
 #sidebar h1 a{color:#1d7ffc;font-weight:500;text-shadow:#1d7ffc 2px 2px 2px}
 #sidebar h1 a:hover{}
 h2{font-size:1.5em;letter-spacing:0.4pt;text-transform:uppercase;color:#fccc69}
-h3{font-size:1.1em;letter-spacing:0.2pt;text-transform:uppercase;color:#ecd191}
+h3{font-size:1.2em;letter-spacing:0.2pt;text-transform:uppercase;color:#ecd191}
+h3:before { content: '--->> ';}
+h3:after { content: ' <<--';}
 h4{font-size:1.12em;color:#e0bc70;border-bottom:1px solid #2c2c2c;padding-left:10px}
 img{border:none;color:#fb1080}
 code{font-size:12px;font-family:Monaco,Verdana,sans-serif;background-color:#191919;color:#fde9bb;padding:0.3em 0.4em}

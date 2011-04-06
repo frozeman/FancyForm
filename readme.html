@@ -132,7 +132,7 @@ myFancyForm = new FancyForm(chkBoxes);
 
 	<h3 id='dyn-add'>Adding checkboxes</h3>
 <p>You can add additional inputs to be styled using the <code>FancyForm.add</code> function. This can be used, for example, if you dynamically create checkboxes or radio buttons.</p>
-<pre<code>myFancyForm = new FancyForm();
+<pre><code>myFancyForm = new FancyForm();
 var newLabel = new Element('label', {'for': 'chk1'}});
 var newCheckbox = new Element('input', {'type': 'checkbox', 'id', 'chk1', 'name': 'aChk'});
 newLabel.adopt(newCheckbox);
@@ -142,12 +142,23 @@ myFancyForm.add(newCheckbox);</code></pre>
 
 	<h3 id='dyn-add'>Adding depencies</h3>
 <p>You can also add depencies to other checkboxes or radio buttons. Just call the <code>FancyForm.setDepency</code> function. The elements passed in the second parameter will then also be checked if the element in the first parameter is clicked.</p>
-<pre<code>myFancyForm = new FancyForm();
+<pre><code>myFancyForm = new FancyForm();
 
 var checkBox1 = $$('input[type="checkbox"]')[0];
-var otherCheckboxes = $$('input.depencies');
+var dependingCheckboxes = $$('input.depencies');
 
-myFancyForm.setDepency(checkBox1,otherCheckboxes);</code></pre>
+myFancyForm.setDepency(checkBox1,dependingCheckboxes);</code></pre>
+
+<p>More advanced you can also set whether the depencies will be changed when the element is <strong>checked</strong> or <strong>unchecked</strong> (Parameter 3) and whether the depencies will be <strong>check</strong> or <strong>uncheckd</strong> (Parameter 4)</p>
+<p>The standar values are TRUE for both parameters, means when the element is checked the depencies will also be checked</p>
+
+<pre><code>myFancyForm = new FancyForm();
+
+var checkBox1 = $$('input[type="checkbox"]')[0];
+var dependingCheckboxes = $$('input.depencies');
+
+// in this case the depencies will be unchecked when the element (checkBox1) is unchecked
+myFancyForm.setDepency(checkBox1,dependingCheckboxes,false,false);</code></pre>
 
 	<h3 id='classes'>Changing classes</h3>
 <p>The second argument for the <code>FancyForm.start()</code> function, if set, should be an object or array containing any extra options.</p>
