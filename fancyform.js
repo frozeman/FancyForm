@@ -221,7 +221,8 @@ var FancyForm = new Class ({
 		}
 		if(!this.initing) {
 			chk.inputElement.focus();
-			chk.inputElement.fireEvent('change');
+			if(chk.type == 'radio' || chk.type == 'checkbox')
+				chk.inputElement.fireEvent('change');
 		}
 	},
 	setDepency: function(element,depencies,checkElement,checkDepencies) {
